@@ -1,21 +1,21 @@
 const body = document.querySelector('body')
 const button = document.querySelector('a')
 
-const NUMBER = 99;
 
-body.style.backgroundColor = "#6A5ACD";
+const hexValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'A','B','C','D','E','F']
 
 button.addEventListener('click', changeColors)
 
 function changeColors() {
-    let color1 = Math.floor(Math.random() * NUMBER)
-    let color2 = Math.floor(Math.random() * NUMBER)
-    let color3 = Math.floor(Math.random() * NUMBER)
+    let hex = '#'
+    for (let i = 0; i < 6; i++) {        
+        let index = Math.floor(Math.random() * hexValues.length)
+        hex += hexValues[index]
+        console.log(hex);
+    }
     
-    let COLOR = `#${color1}${color2}${color3}`
-    body.style.backgroundColor = COLOR;
-
-    
+    body.style.backgroundColor = hex;
     let objetivo = document.getElementById('hex-value');
-    objetivo.innerHTML = COLOR;
+    objetivo.innerHTML = hex; 
+
 }
